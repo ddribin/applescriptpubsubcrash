@@ -27,6 +27,7 @@
 		551C2BAA0F1FBE93000437D6 /* AppleScriptPubSubCrash.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 551C2BA90F1FBE93000437D6 /* AppleScriptPubSubCrash.sdef */; };
 		551C2BC90F1FBFD2000437D6 /* FooScript.applescript in AppleScript */ = {isa = PBXBuildFile; fileRef = 551C2B860F1FBE45000437D6 /* FooScript.applescript */; settings = {ATTRIBUTES = (Debug, ); }; };
 		551C2BE30F1FC0E5000437D6 /* hotnews.rss in Resources */ = {isa = PBXBuildFile; fileRef = 551C2BE20F1FC0E5000437D6 /* hotnews.rss */; };
+		551C2BF90F1FC7F3000437D6 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 551C2BF70F1FC7E3000437D6 /* libxml2.2.dylib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -47,6 +48,7 @@
 		551C2B860F1FBE45000437D6 /* FooScript.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = FooScript.applescript; sourceTree = "<group>"; };
 		551C2BA90F1FBE93000437D6 /* AppleScriptPubSubCrash.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.sdef; path = AppleScriptPubSubCrash.sdef; sourceTree = "<group>"; };
 		551C2BE20F1FC0E5000437D6 /* hotnews.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = hotnews.rss; sourceTree = "<group>"; };
+		551C2BF70F1FC7E3000437D6 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* AppleScriptPubSubCrash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleScriptPubSubCrash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -58,6 +60,7 @@
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				551C2B7D0F1FBC84000437D6 /* PubSub.framework in Frameworks */,
+				551C2BF90F1FC7F3000437D6 /* libxml2.2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +111,7 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				551C2B7C0F1FBC84000437D6 /* PubSub.framework */,
+				551C2BF70F1FC7E3000437D6 /* libxml2.2.dylib */,
 			);
 			name = AppleScriptPubSubCrash;
 			sourceTree = "<group>";
@@ -240,6 +244,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AppleScriptPubSubCrash_Prefix.pch;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = AppleScriptPubSubCrash;
@@ -254,6 +259,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AppleScriptPubSubCrash_Prefix.pch;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = AppleScriptPubSubCrash;

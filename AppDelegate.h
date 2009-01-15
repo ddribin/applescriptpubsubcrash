@@ -18,8 +18,10 @@
 
 @property (nonatomic, readonly, getter=isRefreshing) BOOL refreshing;
 
-- (IBAction)refresh:(id)sender;
+- (IBAction)refreshFeed:(id)sender;
 
 - (IBAction)runAppleScript:(id)sender;
+
+- (IBAction)cleanupXMLParser:(id)sender;
 
 @end

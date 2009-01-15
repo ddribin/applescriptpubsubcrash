@@ -8,9 +8,11 @@
 
 #import "AppDelegate.h"
 #import <PubSub/PubSub.h>
+#import "libxml/parser.h"
 
-#define NEW_FEED_EACH_REFRESH 1 // Must be 1 to recreate crash
-#define USE_COMPILED_SCRIPT 0   // Must be 0 to recreate crash
+#define NEW_FEED_EACH_REFRESH   1   // Must be 1 to recreate crash
+#define USE_COMPILED_SCRIPT     0   // Must be 0 to recreate crash
+#define RUN_APPLESCRIPT_IN_INIT 0   // Must be 0 to recreate crash
 
 @interface AppDelegate ()
 
@@ -30,6 +32,10 @@
     self = [super init];
     if (self == nil)
         return nil;
+    
+#if RUN_APPLESCRIPT_IN_INIT
+    [self runAppleScript:nil];
+#endif
     
 #if !NEW_FEED_EACH_REFRESH
     [self createFeed];
@@ -61,7 +67,7 @@
     _feed = [[PSFeed alloc] initWithData:feedData URL:url];
 }
 
-- (IBAction)refresh:(id)sender;
+- (IBAction)refreshFeed:(id)sender;
 {
     if (self.refreshing)
         return;
@@ -93,6 +99,8 @@
 - (IBAction)runAppleScript:(id)sender;
 {
     NSString * scriptName = @"FooScript";
+    NSLog(@"Running AppleScript: %@", scriptName);
+    
 #if USE_COMPILED_SCRIPT
     NSString * scriptPath = [[NSBundle mainBundle] pathForResource:scriptName ofType:@"scpt" inDirectory:@"Scripts"];
 #else
@@ -110,6 +118,12 @@
     
     errorDict = nil;
     [script executeAndReturnError:&errorDict];
+    NSLog(@"Finished executing script");
+}
+
+- (IBAction)cleanupXMLParser:(id)sender;
+{
+    xmlCleanupParser();
 }
 
 @end
